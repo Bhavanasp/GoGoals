@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7eef9b966562e1f41a743d93f4c91f89
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bbNopit: {fileID: 4170405229202898988, guid: 12161b20d57a6a543aee4cee101b3d56,
+      type: 3}
+  - bbPitMid: {fileID: 1576896699623979047, guid: 05e957dd2a34d444882f1761401ed4e2,
+      type: 3}
+  - Coin_n: {fileID: 5613062965376536657, guid: da9ef53390f6cad4baa4d7f147b0b149,
+      type: 3}
+  - Coin_z: {fileID: 3455418237705048107, guid: 070273ae46515a84ba4d747f61925bf8,
+      type: 3}
+  - obst: {fileID: 510986038899797226, guid: 831bd684713d2444c9031da2b7c959fd, type: 3}
+  - Capsule: {fileID: 8456689745742271104, guid: c13bb07eab0bc374ab174ec6eaee44a2,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
