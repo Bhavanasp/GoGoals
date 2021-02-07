@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class ObstaclesSpawner : MonoBehaviour
 {
     public GameObject Obstacle;
     Vector3 position = new Vector3(51, 0, 2);
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             for(int i = 0;i<5;i++){
                 Temp = Instantiate(Obstacle, position, Quaternion.identity);
                 Obstacles.Enqueue(Temp);
-                position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));
+                if(position.z<488){position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));}
                 Destroy(Obstacles.Dequeue());
             }
         }
