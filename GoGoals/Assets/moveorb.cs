@@ -9,8 +9,7 @@ public class moveorb : MonoBehaviour
     public KeyCode moveL;
     public KeyCode moveR;
     public KeyCode moveUp;
-
-    public float horizVel = 0;
+    
     public int hori_laneNum = 2, verti_laneNum = 1;
     public string hori_controllocked = "n", up_controllocked = "n", down_controllocked = "n";
 
@@ -25,28 +24,28 @@ public class moveorb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3 (horizVel,GM.vertVel,4);
+        GetComponent<Rigidbody>().velocity = new Vector3 (GM.horizVel,GM.vertVel,4);
 
         if(Input.GetKeyDown(moveL) && (hori_laneNum>1) && (hori_controllocked == "n")) {
-            horizVel = -3.5f;
+            GM.horizVel = -4;
             StartCoroutine(hori_stopSlide());
             hori_laneNum -= 1;
             hori_controllocked = "y";
         }
 
         if(Input.GetKeyDown(moveR) && (hori_laneNum<3) && (hori_controllocked == "n")) {
-            horizVel = 3.5f;
+            GM.horizVel = 4;
             StartCoroutine(hori_stopSlide());
             hori_laneNum += 1;
             hori_controllocked = "y";
         }
 
-        if(Input.GetKeyDown(moveUp) && (verti_laneNum<2) && (up_controllocked == "n")) {
-            GetComponent<Rigidbody>().AddForce(transform.up * 100f);
-            // StartCoroutine(vert_stopSlide()); 
-            // verti_laneNum += 1;
-            // up_controllocked = "y";   
-        }
+        // if(Input.GetKeyDown(moveUp) && (verti_laneNum<2) && (up_controllocked == "n")) {
+        //     GetComponent<Rigidbody>().AddForce(transform.up * 100f);
+        //     // StartCoroutine(vert_stopSlide()); 
+        //     // verti_laneNum += 1;
+        //     // up_controllocked = "y";   
+        // }
 
     }
 
@@ -64,19 +63,19 @@ public class moveorb : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if(other.gameObject.name == "rampbottomtrig") {
-            GM.vertVel = 2;
-        }
+        // if(other.gameObject.name == "rampbottomtrig") {
+        //     GM.vertVel = 2;
+        // }
 
-        if(other.gameObject.name == "ramptoptrig") {
-            GM.vertVel = 0;
-        }
+        // if(other.gameObject.name == "ramptoptrig") {
+        //     GM.vertVel = 0;
+        // }
 
-        if(other.gameObject.name == "exit") {
-            SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
-        }
+        // if(other.gameObject.name == "exit") {
+        //     SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
+        // }
 
-        if(other.gameObject.name == "coin(Clone)") {
+        if(other.gameObject.tag == "coin") {
             Destroy(other.gameObject);
             GM.coinTotal += 1;
         }
@@ -84,7 +83,7 @@ public class moveorb : MonoBehaviour
 
     IEnumerator hori_stopSlide() {
         yield return new WaitForSeconds(.5f);
-        horizVel = 0;
+        GM.horizVel = 0;
         hori_controllocked = "n";
     }
 

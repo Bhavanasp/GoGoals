@@ -7,14 +7,16 @@ public class GM : MonoBehaviour
 {
 
     public static float vertVel = 0;
+    public static float horizVel = 0;
     public static int coinTotal = 0;
     public static float timeTotal = 0;
     public float waittoload = 0;
 
-    public float xScenePos = 8;
-    public float yScenePos = 1;
-    public float zScenePos = 124;
-    public float z;
+    public float txScenePos = -13;
+    public float tyScenePos = 0.5f;
+    public float tzScenePos = 40;
+    public float obstx = 8;
+    public float obstz = 20;
 
     public static float zVelAdj = 1;
 
@@ -22,10 +24,9 @@ public class GM : MonoBehaviour
 
     public Transform bbNopit;
     public Transform bbPitMid;
-    //public Transform terrain;
+    public Transform terrain;
 
-    public Transform Coin_n;
-    public Transform Coin_z;
+    public Transform coin1, coin2, coin3, coin4, coin5;
     public Transform obst;
     public Transform Capsule; 
 
@@ -33,39 +34,48 @@ public class GM : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        //Instantiate(terrain, new Vector3(xScenePos, yScenePos, 40), terrain.rotation);
-        //Instantiate(terrain, new Vector3(xScenePos, yScenePos, 82), terrain.rotation);
+    {   
+          //Instantiate(terrain, new Vector3(txScenePos, tyScenePos, 19), transform.rotation);
+          //Instantiate(terrain, new Vector3(xScenePos, yScenePos, 40), Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(zScenePos < 1000) {
+        if(obstz < 1000) {
 
-            for(float i=0; i<10; i++) {
-            
-            z = zScenePos;
-            randomNo = Random.Range(0, 10);
+            randomNo = Random.Range(0, 9);
             xRand = Random.Range(-1, 1);
 
-        //    if(randomNo < 3) {
-                Instantiate(obst, new Vector3((xScenePos + 2*xRand), 0.5f, z), obst.rotation);
-        
-
-            if(randomNo > 7) {
-              //  Instantiate(Coin_n, new Vector3((xScenePos + 2*xRand), 1.5f, z), Coin_n.rotation);
+            if(randomNo == 1) {
+                Instantiate(coin1, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin1.rotation);
             }
 
-            if((randomNo > 4) && (randomNo < 7)) {
-               // Instantiate(Coin_z, new Vector3((xScenePos + 2*xRand), 1.5f, z), Coin_z.rotation);
+            else if(randomNo == 2) {
+                Instantiate(coin2, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin2.rotation);
             }
-            z += 4;
-        }
 
-           // Instantiate(terrain, new Vector3(xScenePos, yScenePos, 82), terrain.rotation);
-            zScenePos += 42;
-        }
+            else if(randomNo == 3) {
+                Instantiate(coin3, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin3.rotation);
+            }
+
+            else if(randomNo == 4) {
+                Instantiate(coin4, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin4.rotation);
+            }
+
+            else if(randomNo == 5) {
+                Instantiate(coin5, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin5.rotation);
+            }
+
+            else if(randomNo > 5) {
+                Instantiate(obst, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), obst.rotation);
+            }
+                
+                obstz += 4;
+            }
+
+        Instantiate(terrain, new Vector3(txScenePos, tyScenePos, tzScenePos), terrain.rotation);
+        tzScenePos += 21;
 
         timeTotal += Time.deltaTime;
 

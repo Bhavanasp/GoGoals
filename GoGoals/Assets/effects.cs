@@ -17,7 +17,7 @@ public class effects : MonoBehaviour
             transform.Rotate(1,0,0);
         }
         if(gameObject.tag == "coin") {
-            transform.Rotate(0,1,0);
+            transform.Rotate(0,3,0);
         }
         if(gameObject.tag == "lethal") {
             transform.Rotate(0,1,0);
