@@ -764,4 +764,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obstacle: {fileID: 7064418592091885006, guid: 8406fa4a41a770a40ba4af9a7aae9991,
     type: 3}
-  Player: {fileID: 189570084}
+  MainCamera: {fileID: 382733371}

@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     
     void Start(){
         Obstacles = new Queue<GameObject>();
-        for(int i = 0;i<8;i++){
+        for(int i = 0;i<10;i++){
             Temp = Instantiate(Obstacle, position, Quaternion.identity);
             Obstacles.Enqueue(Temp);
             position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));
@@ -21,16 +21,13 @@ public class Spawner : MonoBehaviour
     }
 
     void Update(){
-        if(MainCamera.position.z>Obstacles.ElementAt(0).transform.position.z&&position.z<470){
-            for(int i = 0;i<8;i++){
+        if(MainCamera.position.z>Obstacles.ElementAt(5).transform.position.z){
+            for(int i = 0;i<5;i++){
                 Temp = Instantiate(Obstacle, position, Quaternion.identity);
                 Obstacles.Enqueue(Temp);
                 position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));
+                Destroy(Obstacles.Dequeue());
             }
-        }
-
-        if(MainCamera.position.z>Obstacles.ElementAt(7).transform.position.z){
-            for(int i = 0;i<8;i++) Destroy(Obstacles.Dequeue());
         }
     }
 }
