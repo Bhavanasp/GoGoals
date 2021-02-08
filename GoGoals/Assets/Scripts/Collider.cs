@@ -40,7 +40,7 @@ public class Collider : MonoBehaviour
 
     void OnCollisionEnter(Collision coll){
         if(coll.gameObject.name=="rock(Clone)"){
-            TakeDamage(5);
+            TakeDamage(10);
         }
         else if(coll.gameObject.name=="coin1(Clone)"){
             Destroy(coll.gameObject);

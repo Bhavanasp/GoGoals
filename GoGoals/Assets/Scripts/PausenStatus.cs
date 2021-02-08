@@ -17,6 +17,7 @@ public class PausenStatus : MonoBehaviour
     public CountDown timer;
 
     public TextMeshProUGUI message;
+    bool allow = true;
 
     int maxScore = 100;
 
@@ -36,18 +37,22 @@ public class PausenStatus : MonoBehaviour
             }
         }
 
-        if(healthBar.slider.value==0){
-            gameStatusUI.SetActive(true);
-            message.GetComponent<TextMeshProUGUI>().text = "YOU LOST";
-        }
-
-        if(timer.timeLeft==0){
-            gameStatusUI.SetActive(true);
-            if(scoreBar.slider.value==maxScore){
-                message.GetComponent<TextMeshProUGUI>().text = "YOU WON";
-            }
-            else{
+        if(allow){
+            if(healthBar.slider.value==0){
+                gameStatusUI.SetActive(true);
                 message.GetComponent<TextMeshProUGUI>().text = "YOU LOST";
+                allow = false;
+            }
+
+            if(timer.timeLeft==0){
+                gameStatusUI.SetActive(true);
+                if(scoreBar.slider.value==maxScore){
+                    message.GetComponent<TextMeshProUGUI>().text = "YOU WON";
+                }
+                else{
+                    message.GetComponent<TextMeshProUGUI>().text = "YOU LOST";
+                }
+                allow = false;
             }
         }
     }
