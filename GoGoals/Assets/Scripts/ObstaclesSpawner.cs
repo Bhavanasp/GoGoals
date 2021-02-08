@@ -16,7 +16,7 @@ public class ObstaclesSpawner : MonoBehaviour
         for(int i = 0;i<10;i++){
             Temp = Instantiate(Obstacle, position, Quaternion.identity);
             Obstacles.Enqueue(Temp);
-            position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));
+            position = new Vector3(Random.Range(48, 52), 0, position.z+12*Random.Range(1,2));
         }
     }
 
@@ -25,7 +25,7 @@ public class ObstaclesSpawner : MonoBehaviour
             for(int i = 0;i<5;i++){
                 Temp = Instantiate(Obstacle, position, Quaternion.identity);
                 Obstacles.Enqueue(Temp);
-                if(position.z<488){position = new Vector3(Random.Range(48, 52), 0, position.z+8*Random.Range(1,2));}
+                if(position.z<180){position = new Vector3(Random.Range(48, 52), 0, position.z+15*Random.Range(1,2));}
                 Destroy(Obstacles.Dequeue());
             }
         }
