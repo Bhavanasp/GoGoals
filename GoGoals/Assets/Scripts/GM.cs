@@ -42,8 +42,7 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tzScenePos < 1000) {
-
+        if(obstz < 400) {
             randomNo = Random.Range(0, 9);
             xRand = Random.Range(-1, 1);
 
@@ -70,26 +69,24 @@ public class GM : MonoBehaviour
             else if(randomNo > 5) {
                 Instantiate(obst, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), obst.rotation);
             }
-                
-                obstz += 4;
+                    
+            obstz += 4;
         }
-
-
-        Instantiate(terrain, new Vector3(txScenePos, tyScenePos, tzScenePos), terrain.rotation);
-        tzScenePos += 21;
+        
+        if(tzScenePos < 400) {
+            Instantiate(terrain, new Vector3(txScenePos, tyScenePos, tzScenePos), terrain.rotation);
+            tzScenePos += 21;
+        }
 
         timeTotal += Time.deltaTime;
 
-        if(lvlCompStatus == "Fail") {
-            waittoload += Time.deltaTime;
-        }
-
-        if(timeTotal == 200) {
-            SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
-        }
-
-        if(waittoload > 1) {
-            SceneManager.LoadScene("LevelLost", LoadSceneMode.Single);
+        if(timeTotal == 20) {
+            if(coinTotal >= 0) {
+                SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
+            }
+            if(coinTotal < 0) {
+                SceneManager.LoadScene("LevelLost", LoadSceneMode.Single);
+            }
         }
     }
 }

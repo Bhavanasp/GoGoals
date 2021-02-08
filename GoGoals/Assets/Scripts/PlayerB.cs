@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerB : MonoBehaviour
 {
-
-    Animator animator;
+     Animator animator;
     public Rigidbody rb;
     public Transform player;
     float forwardSpeed = 6f;
@@ -16,15 +14,15 @@ public class PlayerBehaviour : MonoBehaviour
     bool move = false;
 
     public Transform boomObj;
-
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    void FixedUpdate()
-    { 
+    // Update is called once per frame
+    void Update()
+    {
         if(Input.GetKey(KeyCode.Space)){
             animator.SetBool("run",true);
             move = true;
@@ -43,14 +41,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag == "lethal") {
-            GM.zVelAdj = 0;
+            GMb.zVelAdj = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
-            GM.coinTotal -= 1;
+            GMb.coinTotal -= 1;
         }
 
         if(other.gameObject.tag == "coin") {
             Destroy(other.gameObject);
-            GM.coinTotal += 1;
+            GMb.coinTotal += 1;
         }
     }
+
 }
