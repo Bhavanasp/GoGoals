@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class stats : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class stats : MonoBehaviour
             if(gameObject.name == "time") {
                 GetComponent<TextMesh>().text = "Time: " + GM.timeTotal;
             }
+            StartCoroutine("LoadLevel");
         }
 
         else if(GM.coinTotal == 0 && GM.timeTotal == 0) {
@@ -29,6 +31,15 @@ public class stats : MonoBehaviour
             if(gameObject.name == "time") {
                 GetComponent<TextMesh>().text = "Time: " + GMb.timeTotal;
             }
+            StartCoroutine("LoadEnd");
         }
+    }
+    IEnumerator LoadLevel() {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+    }
+    IEnumerator LoadEnd() {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("End", LoadSceneMode.Single);
     }
 }
