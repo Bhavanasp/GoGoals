@@ -14,10 +14,10 @@ public class CoinSpawner : MonoBehaviour
     void Start(){
         position = new Vector3(Random.Range(48, 52), Random.Range(0.5f,1.2f), Random.Range(5,10));
         Obstacles = new Queue<GameObject>();
-        for(int i = 0;i<12;i++){
+        for(int i = 0;i<7;i++){
             Temp = Instantiate(Obstacle, position, Quaternion.identity);
             Obstacles.Enqueue(Temp);
-            position = new Vector3(Random.Range(49.5f, 50.5f), Random.Range(0.5f,1.2f), position.z+16*Random.Range(1,2));
+            position = new Vector3(Random.Range(49.5f, 50.5f), Random.Range(0.5f,1.2f), position.z+25*Random.Range(1,2));
         }
     }
 }
