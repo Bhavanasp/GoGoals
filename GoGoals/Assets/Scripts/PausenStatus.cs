@@ -17,7 +17,10 @@ public class PausenStatus : MonoBehaviour
     public CountDown timer;
 
     public TextMeshProUGUI message;
+    public Button btn;
     bool allow = true;
+
+    public string scene;
 
     int maxScore = 100;
 
@@ -42,6 +45,7 @@ public class PausenStatus : MonoBehaviour
                 gameStatusUI.SetActive(true);
                 message.GetComponent<TextMeshProUGUI>().text = "YOU LOST";
                 allow = false;
+                Destroy(btn.gameObject);
             }
 
             if(timer.timeLeft==0){
@@ -51,6 +55,7 @@ public class PausenStatus : MonoBehaviour
                 }
                 else{
                     message.GetComponent<TextMeshProUGUI>().text = "YOU LOST";
+                    Destroy(btn.gameObject);
                 }
                 allow = false;
             }
@@ -77,5 +82,15 @@ public class PausenStatus : MonoBehaviour
     public void QuitGame(){
         Time.timeScale = 1f;
         Application.Quit();
+    }
+
+    public void MovetoMain()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void Next()
+    {
+        SceneManager.LoadScene(scene);
     }
 }
