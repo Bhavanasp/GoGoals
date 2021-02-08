@@ -75,11 +75,11 @@ public class GMb : MonoBehaviour
             Instantiate(build, new Vector3(txScenePos, tyScenePos, tzScenePos), build.rotation);
             tzScenePos += 68;
         }
-        
+
         timeTotal += Time.deltaTime;
     
 
-        if(timeTotal == 20) {
+        if(timeTotal >= 20) {
             if(coinTotal >= 0) {
                 SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
             }

@@ -72,15 +72,15 @@ public class GM : MonoBehaviour
                     
             obstz += 4;
         }
-        
+
         if(tzScenePos < 400) {
             Instantiate(terrain, new Vector3(txScenePos, tyScenePos, tzScenePos), terrain.rotation);
             tzScenePos += 21;
         }
 
         timeTotal += Time.deltaTime;
-
-        if(timeTotal == 20) {
+        
+        if(timeTotal >= 20) {
             if(coinTotal >= 0) {
                 SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
             }
