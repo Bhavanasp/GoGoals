@@ -35,11 +35,11 @@ public class stats : MonoBehaviour
         }
     }
     IEnumerator LoadLevel() {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("Level2", LoadSceneMode.Single);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Inst3", LoadSceneMode.Single);
     }
     IEnumerator LoadEnd() {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("End", LoadSceneMode.Single);
     }
 }

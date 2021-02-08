@@ -80,7 +80,7 @@ public class GM : MonoBehaviour
 
         timeTotal += Time.deltaTime;
         
-        if(timeTotal >= 20) {
+        if(timeTotal >= 15) {
             if(coinTotal >= 0) {
                 SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
             }
