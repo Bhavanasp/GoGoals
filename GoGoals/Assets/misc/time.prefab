@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411079641360747537}
-  - component: {fileID: 411079641360747534}
+  - component: {fileID: 7495821587016067953}
   m_Layer: 0
   m_Name: time
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &411079641360747534
+--- !u!114 &7495821587016067953
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,16 +44,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waittoload: 0
-  xScenePos: 8
-  yScenePos: 0.5
-  zScenePos: 56.7
-  z: 0
+  txScenePos: -13
+  tyScenePos: 0.5
+  tzScenePos: 40
+  obstx: 8
+  obstz: 20
   bbNopit: {fileID: 4170405229202898988, guid: 12161b20d57a6a543aee4cee101b3d56, type: 3}
   bbPitMid: {fileID: 1576896699623979047, guid: 05e957dd2a34d444882f1761401ed4e2,
     type: 3}
-  Coin_n: {fileID: 0}
-  Coin_z: {fileID: 0}
+  terrain: {fileID: 0}
+  coin1: {fileID: 0}
+  coin2: {fileID: 0}
+  coin3: {fileID: 0}
+  coin4: {fileID: 0}
+  coin5: {fileID: 0}
   obst: {fileID: 510986038899797226, guid: 831bd684713d2444c9031da2b7c959fd, type: 3}
-  Capsule: {fileID: 0}
+  Capsule: {fileID: 8456689745742271104, guid: c13bb07eab0bc374ab174ec6eaee44a2, type: 3}
   randomNo: 0
   xRand: 0
