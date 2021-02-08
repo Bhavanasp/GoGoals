@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class movecam : MonoBehaviour
 {
+
+    public Transform player;
+    Vector3 offset = new Vector3(0, 0, -5);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,6 @@ public class movecam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody> ().velocity = new Vector3 (0, GM.vertVel, 4);
+        transform.position = new Vector3(0, 2.5f, player.position.z) + offset;
     }
 }
