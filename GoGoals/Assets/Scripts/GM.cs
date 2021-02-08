@@ -86,7 +86,7 @@ public class GM : MonoBehaviour
             }
             if(coinTotal < 0) {
                 SceneManager.LoadScene("LevelLost", LoadSceneMode.Single);
-            }
+            }       
         }
     }
 }
