@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GMb : MonoBehaviour
+public class GM : MonoBehaviour
 {
 
     public static float vertVel = 0;
@@ -12,28 +12,31 @@ public class GMb : MonoBehaviour
     public static float timeTotal = 0;
     public float waittoload = 0;
 
-    public float txScenePos = 1;
-    public float tyScenePos = 0;
-    public float tzScenePos = (68+68);
-    public float obstx = 0;
-    public float obstz = 15;
+    public float txScenePos = -13;
+    public float tyScenePos = 0.5f;
+    public float tzScenePos = 40;
+    public float obstx = 8;
+    public float obstz = 20;
 
     public static float zVelAdj = 1;
 
     public static string lvlCompStatus = "";
 
-    public Transform build;
+    public Transform bbNopit;
+    public Transform bbPitMid;
+    public Transform terrain;
 
     public Transform coin1, coin2, coin3, coin4, coin5;
     public Transform obst;
+    public Transform Capsule; 
 
     public int randomNo, xRand;
 
-
     // Start is called before the first frame update
     void Start()
-    {
-        Instantiate(build, new Vector3(1, 0, 68), build.rotation);
+    {   
+          Instantiate(terrain, new Vector3(txScenePos, tyScenePos, 19), transform.rotation);
+          //Instantiate(terrain, new Vector3(xScenePos, yScenePos, 40), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -45,23 +48,23 @@ public class GMb : MonoBehaviour
             xRand = Random.Range(-1, 1);
 
             if(randomNo == 1) {
-                Instantiate(coin1, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), coin1.rotation);
+                Instantiate(coin1, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin1.rotation);
             }
 
             else if(randomNo == 2) {
-                Instantiate(coin2, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), coin2.rotation);
+                Instantiate(coin2, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin2.rotation);
             }
 
             else if(randomNo == 3) {
-                Instantiate(coin3, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), coin3.rotation);
+                Instantiate(coin3, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin3.rotation);
             }
 
             else if(randomNo == 4) {
-                Instantiate(coin4, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), coin4.rotation);
+                Instantiate(coin4, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin4.rotation);
             }
 
             else if(randomNo == 5) {
-                Instantiate(coin5, new Vector3((obstx + (2 * xRand)), 0.5f, obstz), coin5.rotation);
+                Instantiate(coin5, new Vector3((obstx + (2 * xRand)), 1.5f, obstz), coin5.rotation);
             }
 
             else if(randomNo > 5) {
@@ -69,15 +72,20 @@ public class GMb : MonoBehaviour
             }
                 
                 obstz += 4;
-            }
+        }
 
-        Instantiate(build, new Vector3(txScenePos, tyScenePos, tzScenePos), build.rotation);
-        tzScenePos += 68;
+
+        Instantiate(terrain, new Vector3(txScenePos, tyScenePos, tzScenePos), terrain.rotation);
+        tzScenePos += 21;
 
         timeTotal += Time.deltaTime;
 
         if(lvlCompStatus == "Fail") {
             waittoload += Time.deltaTime;
+        }
+
+        if(timeTotal == 200) {
+            SceneManager.LoadScene("LevelComp", LoadSceneMode.Single);
         }
 
         if(waittoload > 1) {

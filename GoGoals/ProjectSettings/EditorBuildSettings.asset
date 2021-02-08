@@ -24,15 +24,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: fcb91fc21c5f68b42bbde24099260c75
   - enabled: 1
-    path: Assets/Scenes/GameManager/Inst3.unity
-    guid: 7b1dac6e1a2e5994f9f803de6527e693
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 37e06300b4bac9c45985dc90825e421c
-  - enabled: 1
     path: Assets/Scenes/LevelComp.unity
     guid: 6f76a28eec101da4f98f871dd5893683
   - enabled: 1
     path: Assets/Scenes/LevelLost.unity
     guid: 6b3780c19f4d28748bfa28b75c42350f
+  - enabled: 1
+    path: Assets/Scenes/GameManager/Inst3.unity
+    guid: 7b1dac6e1a2e5994f9f803de6527e693
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 37e06300b4bac9c45985dc90825e421c
   m_configObjects: {}
