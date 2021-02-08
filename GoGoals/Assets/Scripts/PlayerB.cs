@@ -7,9 +7,9 @@ public class PlayerB : MonoBehaviour
      Animator animator;
     public Rigidbody rb;
     public Transform player;
-    float forwardSpeed = 6f;
+    float forwardSpeed = 10f;
     float sideSpeed = 6f;
-    float jumpSpeed = 8f;
+    float jumpSpeed = 13f;
     
     bool move = false;
 
